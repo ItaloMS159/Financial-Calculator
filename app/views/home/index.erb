@@ -1,0 +1,19 @@
+<h1>Bem vindo a HomePage<h1>
+
+<% if user_signed_in? %>
+  <p>Bem-vindo, <%= current_user.email %>!</p>
+<% else %>
+  <p>Você não está logado.</p>
+<% end %>
+
+<noscript>
+  <div class="alert alert-warning">
+    O JavaScript está desativado no seu navegador. Ative-o para uma melhor experiência no site.
+  </div>
+</noscript>
+
+<%= button_to(
+        "Log Out",
+        destroy_user_session_path,
+        method: :delete
+      ) %>
